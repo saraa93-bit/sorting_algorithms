@@ -9,24 +9,24 @@
  * same given index if index is the min
  */
 
-int locate_j(int *array, int index, size_t size)
+int locate_min(int *array, int index, size_t size)
 {
-	int j, idx_j;
+	int min, idx_min;
 	int i;
 
-	j = array[index];
-	idx_j = index;
+	min = array[index];
+	idx_min = index;
 	for (i = index; i < (int)size; i++)
 	{
-		if (array[i] < j)
+		if (array[i] < min)
 		{
-			j = array[i];
-			idx_j = i;
+			min = array[i];
+			idx_min = i;
 		}
 	}
-	if (idx_j == index)
+	if (idx_min == index)
 		return (-1);
-	return (idx_j);
+	return (idx_min);
 }
 
 /**
@@ -39,16 +39,16 @@ int locate_j(int *array, int index, size_t size)
 void selection_sort(int *array, size_t size)
 {
 	int i;
-	int j, n;
+	int min, tmp;
 
 	for (i = 0; i < (int)size; i++)
 	{
-		j = locate_j(array, i, size);
-		if (j != -1)
+		min = locate_min(array, i, size);
+		if (min != -1)
 		{
-			n = array[i];
-			array[i] = array[j];
-			array[j] = n;
+			tmp = array[i];
+			array[i] = array[min];
+			array[min] = tmp;
 			print_array(array, size);
 		}
 	}
