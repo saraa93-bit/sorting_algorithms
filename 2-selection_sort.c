@@ -9,24 +9,24 @@
  * same given index if index is the min
  */
 
-int locate_min(int *array, int index, size_t size)
+int locate_j(int *array, int index, size_t size)
 {
-	int min, idx_min;
+	int j, idx_j;
 	int i;
 
-	min = array[index];
-	idx_min = index;
+	j = array[index];
+	idx_j = index;
 	for (i = index; i < (int)size; i++)
 	{
-		if (array[i] < min)
+		if (array[i] < j)
 		{
-			min = array[i];
-			idx_min = i;
+			j = array[i];
+			idx_j = i;
 		}
 	}
-	if (idx_min == index)
+	if (idx_j == index)
 		return (-1);
-	return (idx_min);
+	return (idx_j);
 }
 
 /**
